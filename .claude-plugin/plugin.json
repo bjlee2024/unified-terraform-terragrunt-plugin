@@ -1,0 +1,21 @@
+{
+  "name": "unified-terraform-terragrunt",
+  "description": "Comprehensive Terraform, OpenTofu, and Terragrunt skill with complete CLI reference, best practices, and real-world patterns",
+  "version": "1.0.0",
+  "author": {
+    "name": "bjlee2024"
+  },
+  "license": "Apache-2.0",
+  "repository": "https://github.com/bjlee2024/unified-terraform-terragrunt-plugin",
+  "keywords": [
+    "terraform",
+    "terragrunt",
+    "opentofu",
+    "iac",
+    "infrastructure-as-code",
+    "devops",
+    "aws",
+    "hcp",
+    "hashicorp"
+  ]
+}
