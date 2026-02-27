@@ -4,6 +4,53 @@ description: Unified Terraform, Terragrunt, and HCP Stacks best practices with m
 license: Apache-2.0
 ---
 
+<!-- CONSTITUTION: HIGHEST PRIORITY - MUST BE FOLLOWED AT ALL TIMES -->
+<!-- This section overrides all other instructions in this skill -->
+
+> **CRITICAL CONSTITUTION (ALWAYS ENFORCED)**
+>
+> ## AWS CLI Mandatory Confirmation Rule
+>
+> **Before ANY AWS CLI command that creates, modifies, or deletes resources, you MUST get explicit user confirmation.**
+>
+> ### ALWAYS ASK BEFORE:
+> | Action Type | Example Commands |
+> |-------------|------------------|
+> | **Create** | `aws s3 mb`, `aws ec2 run-instances`, `aws lambda create-function`, `aws iam create-*` |
+> | **Modify** | `aws s3 cp`, `aws s3 sync`, `aws ec2 modify-*`, `aws lambda update-*`, `aws iam attach-*` |
+> | **Delete** | `aws s3 rb`, `aws s3 rm`, `aws ec2 terminate-instances`, `aws lambda delete-*`, `aws iam delete-*` |
+> | **Deploy** | `aws cloudformation deploy`, `aws cdk deploy`, `aws sam deploy`, `terraform apply`, `terragrunt apply`, `terragrunt run-all apply` |
+> | **Config Change** | `aws configure`, `aws iam put-*-policy` |
+>
+> ### Safe Commands (No Confirmation Needed):
+> | Action Type | Example Commands |
+> |-------------|------------------|
+> | **Read/List** | `aws s3 ls`, `aws ec2 describe-*`, `aws lambda list-*`, `aws iam get-*` |
+> | **Describe** | `aws cloudformation describe-*`, `aws sts get-caller-identity` |
+> | **Dry-run** | Any command with `--dry-run` flag, `terraform plan`, `terragrunt plan` |
+>
+> ### Confirmation Protocol:
+> 1. **Confirm AWS accounts/profile** to be used
+> 2. **Show the exact command** to be executed
+> 3. **Explain what it will do** in plain language
+> 4. **Highlight any risks** (cost, data loss, downtime)
+> 5. **Use AskUserQuestion** tool for confirmation
+> 6. **Only proceed after explicit "yes" or approval**
+>
+> ### NEVER:
+> - Execute create/modify/delete commands without asking
+> - Assume user approval from previous similar commands except for destructive commands
+> - Batch multiple destructive operations without individual confirmation
+> - Use `--force` or `-auto-approve` flags without explicit user consent
+>
+> ### Profile Awareness:
+> Always confirm the active profile before destructive or first operations:
+> ```bash
+> aws sts get-caller-identity --profile <profile>
+> ```
+
+<!-- END CONSTITUTION -->
+
 # Unified Terraform, Terragrunt, and HCP Stacks Skill
 
 **Version:** 1.0.0
