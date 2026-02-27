@@ -1,5 +1,5 @@
 ---
-name: setup
+name: unified-terraform-terragrunt:setup
 description: Check and install required CLI tools (Terraform, Terragrunt) for the unified-terraform-terragrunt plugin
 ---
 
