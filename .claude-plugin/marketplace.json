@@ -8,41 +8,7 @@
     {
       "name": "unified-terraform-terragrunt",
       "source": "./",
-      "description": "Comprehensive Terraform, OpenTofu, and Terragrunt skill with complete CLI reference, best practices, and real-world patterns",
-      "categories": [
-        "infrastructure",
-        "devops",
-        "automation"
-      ],
-      "features": [
-        "Terraform/OpenTofu CLI commands and workflows",
-        "Terragrunt DRY patterns and dependency management",
-        "HCP Terraform Stacks deployment configuration",
-        "State management and migration",
-        "Module development best practices",
-        "Multi-environment configuration",
-        "CI/CD integration patterns",
-        "Testing strategies",
-        "Security and compliance guidance",
-        "Real-world examples and patterns"
-      ],
-      "attribution": [
-        {
-          "source": "terraform-claude-code-skill",
-          "author": "lharries",
-          "license": "Apache-2.0"
-        },
-        {
-          "source": "claude-terragrunt-skill",
-          "author": "terryx",
-          "license": "Apache-2.0"
-        },
-        {
-          "source": "claude-hcp-terraform-skill",
-          "author": "terryx",
-          "license": "Apache-2.0"
-        }
-      ]
+      "description": "Comprehensive Terraform, OpenTofu, and Terragrunt skill with complete CLI reference, best practices, and real-world patterns"
     }
   ]
 }
