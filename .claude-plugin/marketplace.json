@@ -1,83 +1,48 @@
 {
-  "name": "unified-terraform-terragrunt",
-  "version": "1.0.0",
-  "description": "Comprehensive Terraform, OpenTofu, and Terragrunt skill with complete CLI reference, best practices, and real-world patterns",
-  "author": "Custom Unified Skill",
-  "license": "Apache-2.0",
-  "repository": "",
-  "keywords": [
-    "terraform",
-    "terragrunt",
-    "opentofu",
-    "iac",
-    "infrastructure",
-    "infrastructure-as-code",
-    "devops",
-    "cloud",
-    "aws",
-    "azure",
-    "gcp",
-    "hcp",
-    "hashicorp",
-    "state-management",
-    "modules",
-    "automation"
-  ],
-  "skill_file": "SKILL.md",
-  "attribution": [
+  "name": "unified-terraform-terragrunt-marketplace",
+  "owner": {
+    "name": "bjlee2024",
+    "url": "https://github.com/bjlee2024"
+  },
+  "plugins": [
     {
-      "source": "terraform-claude-code-skill",
-      "author": "lharries",
-      "license": "Apache-2.0"
-    },
-    {
-      "source": "claude-terragrunt-skill",
-      "author": "terryx",
-      "license": "Apache-2.0"
-    },
-    {
-      "source": "claude-hcp-terraform-skill",
-      "author": "terryx",
-      "license": "Apache-2.0"
+      "name": "unified-terraform-terragrunt",
+      "source": "./",
+      "description": "Comprehensive Terraform, OpenTofu, and Terragrunt skill with complete CLI reference, best practices, and real-world patterns",
+      "categories": [
+        "infrastructure",
+        "devops",
+        "automation"
+      ],
+      "features": [
+        "Terraform/OpenTofu CLI commands and workflows",
+        "Terragrunt DRY patterns and dependency management",
+        "HCP Terraform Stacks deployment configuration",
+        "State management and migration",
+        "Module development best practices",
+        "Multi-environment configuration",
+        "CI/CD integration patterns",
+        "Testing strategies",
+        "Security and compliance guidance",
+        "Real-world examples and patterns"
+      ],
+      "attribution": [
+        {
+          "source": "terraform-claude-code-skill",
+          "author": "lharries",
+          "license": "Apache-2.0"
+        },
+        {
+          "source": "claude-terragrunt-skill",
+          "author": "terryx",
+          "license": "Apache-2.0"
+        },
+        {
+          "source": "claude-hcp-terraform-skill",
+          "author": "terryx",
+          "license": "Apache-2.0"
+        }
+      ]
     }
-  ],
-  "categories": [
-    "infrastructure",
-    "devops",
-    "automation"
-  ],
-  "features": [
-    "Terraform/OpenTofu CLI commands and workflows",
-    "Terragrunt DRY patterns and dependency management",
-    "HCP Terraform Stacks deployment configuration",
-    "State management and migration",
-    "Module development best practices",
-    "Multi-environment configuration",
-    "CI/CD integration patterns",
-    "Testing strategies",
-    "Security and compliance guidance",
-    "Real-world examples and patterns"
-  ],
-  "requirements": {
-    "terraform": ">=0.13.0",
-    "terragrunt": ">=0.38.0",
-    "claude-code": "latest"
-  },
-  "documentation": {
-    "readme": "README.md",
-    "contributor_guide": "CLAUDE.md",
-    "references": "references/",
-    "examples": "examples/"
-  },
-  "token_budgets": {
-    "core_skill": "~5000 tokens",
-    "references_total": "~30000 tokens",
-    "loading_strategy": "progressive disclosure"
-  },
-  "support": {
-    "terraform_docs": "https://www.terraform.io/docs",
-    "opentofu_docs": "https://opentofu.org/docs",
-    "terragrunt_docs": "https://terragrunt.gruntwork.io/docs",
-    "hcp_stacks_docs": "https://developer.hashicorp.com/terraform/cloud-docs/stacks"
-  }
+  ]
 }
