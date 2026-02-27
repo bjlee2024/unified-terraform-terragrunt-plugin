@@ -46,26 +46,64 @@ This skill equips Claude with expert knowledge of:
 
 ## Installation
 
-### Via npx (Recommended)
+### Via Marketplace (Recommended)
 
 ```bash
-# Install from Claude Skills marketplace
-npx skills install unified-terraform-terragrunt
+# 1. Add the marketplace
+/plugin marketplace add bjlee2024/unified-terraform-terragrunt-plugin
+
+# 2. Install the plugin
+/plugin install unified-terraform-terragrunt@unified-terraform-terragrunt-marketplace
+```
+
+### Via Direct Install
+
+```bash
+# Install directly from GitHub
+/plugin install bjlee2024/unified-terraform-terragrunt-plugin
 ```
 
 ### Via Local Clone
 
 ```bash
-# Clone to your Claude skills directory
-git clone <repository-url> ~/.claude/skills/unified-terraform-terragrunt
-
-# Or symlink from your custom location
-ln -s /path/to/unified-terraform-terragrunt ~/.claude/skills/unified-terraform-terragrunt
+# Clone and install locally
+git clone git@github.com:bjlee2024/unified-terraform-terragrunt-plugin.git
+/plugin install ./unified-terraform-terragrunt-plugin
 ```
+
+> **Note**: Requires Claude Code v1.0.33+ with plugin support.
+
+## Setup (CLI Tools)
+
+After installing the plugin, run the setup script to ensure required CLI tools are available:
+
+```bash
+# Interactive mode (prompts before install)
+./setup.sh
+
+# Check tool status only (no installs)
+./setup.sh --check
+
+# Non-interactive mode (auto-install, for CI/CD)
+./setup.sh --auto
+```
+
+### Managed Tools
+
+| Tool | Minimum | Recommended | Platform |
+|------|---------|-------------|----------|
+| **Terraform** | >= 0.13.0 | >= 1.6.0 | macOS (Homebrew), Linux (binary) |
+| **Terragrunt** | >= 0.38.0 | latest | macOS (Homebrew), Linux (binary) |
+
+The setup script:
+- Detects your platform (macOS/Linux) and architecture (amd64/arm64)
+- Checks installed versions against minimum requirements
+- Installs missing or outdated tools (Homebrew on macOS, binary download on Linux)
+- Falls back to `~/.local/bin` if `/usr/local/bin` is not writable
 
 ## Quick Start
 
-Once installed, the skill activates automatically when working with Terraform/Terragrunt files.
+Once installed, the skill is available as `/unified-terraform-terragrunt:terraform` and activates automatically when working with Terraform/Terragrunt files.
 
 ### Example Usage
 
@@ -190,9 +228,25 @@ The skill includes complete, runnable examples:
 
 ## Architecture
 
+```
+unified-terraform-terragrunt-plugin/
+├── .claude-plugin/
+│   ├── plugin.json              # Plugin manifest (direct install)
+│   └── marketplace.json         # Marketplace catalog (marketplace install)
+├── skills/
+│   └── terraform/
+│       └── SKILL.md             # Core skill (~5K tokens, always loaded)
+├── references/                  # Deep references (~30K tokens, on-demand)
+├── examples/                    # Real-world examples (on-demand)
+├── constitution.md              # AWS CLI safety rules (embedded in SKILL.md)
+├── setup.sh                     # CLI tool installer
+├── CLAUDE.md                    # Contributor guide
+└── README.md                    # This file
+```
+
 The skill uses **progressive disclosure**:
 
-1. **Core knowledge** (SKILL.md): Always loaded, covers 80% of tasks
+1. **Core knowledge** (skills/terraform/SKILL.md): Always loaded, covers 80% of tasks
 2. **Reference files** (references/): Loaded on-demand for complex scenarios
 3. **Examples** (examples/): Complete implementations for learning
 
@@ -234,9 +288,11 @@ Claude automatically manages loading to optimize context usage.
 
 ## Requirements
 
-- **Terraform** or **OpenTofu**: v0.13+ recommended
-- **Terragrunt**: v0.38+ recommended (if using Terragrunt features)
-- **Claude Code**: Latest version
+- **Claude Code**: v1.0.33+ (plugin support required)
+- **Terraform** or **OpenTofu**: v0.13+ minimum, v1.6+ recommended
+- **Terragrunt**: v0.38+ (if using Terragrunt features)
+
+Run `./setup.sh --check` to verify your environment.
 
 ## Contributing
 
@@ -288,4 +344,4 @@ Special thanks to the original authors for their foundational work.
 ---
 
 **Version**: 1.0.0
-**Last Updated**: 2025-02-05
+**Last Updated**: 2026-02-27
