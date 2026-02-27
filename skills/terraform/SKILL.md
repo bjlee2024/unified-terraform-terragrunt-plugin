@@ -183,17 +183,17 @@ Stay current with Terraform 1.1+ enhancements:
 
 | Version | Feature | Use Case | Reference |
 |---------|---------|----------|-----------|
-| **1.1+** | `moved` blocks | Refactor without destroying resources | [terraform-patterns.md](references/terraform-patterns.md#moved-blocks) |
-| **1.2+** | Preconditions/Postconditions | Input validation, output assertions | [terraform-patterns.md](references/terraform-patterns.md#conditions) |
-| **1.3+** | Optional object attributes | Flexible variable schemas | [terraform-modules.md](references/terraform-modules.md#optional-attributes) |
-| **1.4+** | `terraform test` command | Native test runner | [terraform-testing.md](references/terraform-testing.md#native-testing) |
-| **1.5+** | `check` blocks | Runtime validation without failing | [terraform-patterns.md](references/terraform-patterns.md#check-blocks) |
-| **1.5+** | `import` blocks | Declarative resource imports | [state-management.md](references/state-management.md#import-blocks) |
-| **1.6+** | `.tftest.hcl` files | Declarative test suites | [terraform-testing.md](references/terraform-testing.md#tftest-syntax) |
-| **1.7+** | `removed` blocks | Graceful resource removal | [terraform-patterns.md](references/terraform-patterns.md#removed-blocks) |
-| **1.9+** | Input validation improvements | Better error messages | [terraform-modules.md](references/terraform-modules.md#input-validation) |
-| **1.10+** | Ephemeral resources | Temporary resources (test DBs) | [terraform-patterns.md](references/terraform-patterns.md#ephemeral) |
-| **1.11+** | Write-only arguments | Sensitive data protection | [security-compliance.md](references/security-compliance.md#write-only) |
+| **1.1+** | `moved` blocks | Refactor without destroying resources | [terraform-patterns.md](../../references/terraform-patterns.md#moved-blocks) |
+| **1.2+** | Preconditions/Postconditions | Input validation, output assertions | [terraform-patterns.md](../../references/terraform-patterns.md#conditions) |
+| **1.3+** | Optional object attributes | Flexible variable schemas | [terraform-modules.md](../../references/terraform-modules.md#optional-attributes) |
+| **1.4+** | `terraform test` command | Native test runner | [terraform-testing.md](../../references/terraform-testing.md#native-testing) |
+| **1.5+** | `check` blocks | Runtime validation without failing | [terraform-patterns.md](../../references/terraform-patterns.md#check-blocks) |
+| **1.5+** | `import` blocks | Declarative resource imports | [state-management.md](../../references/state-management.md#import-blocks) |
+| **1.6+** | `.tftest.hcl` files | Declarative test suites | [terraform-testing.md](../../references/terraform-testing.md#tftest-syntax) |
+| **1.7+** | `removed` blocks | Graceful resource removal | [terraform-patterns.md](../../references/terraform-patterns.md#removed-blocks) |
+| **1.9+** | Input validation improvements | Better error messages | [terraform-modules.md](../../references/terraform-modules.md#input-validation) |
+| **1.10+** | Ephemeral resources | Temporary resources (test DBs) | [terraform-patterns.md](../../references/terraform-patterns.md#ephemeral) |
+| **1.11+** | Write-only arguments | Sensitive data protection | [security-compliance.md](../../references/security-compliance.md#write-only) |
 
 ### Adoption Priority
 
@@ -259,7 +259,7 @@ resource "aws_secretsmanager_secret" "api_key" {
 }
 ```
 
-**Reference:** [security-compliance.md](references/security-compliance.md#secrets-management)
+**Reference:** [security-compliance.md](../../references/security-compliance.md#secrets-management)
 
 ### 3. Resource Iteration: `count` vs `for_each`
 
@@ -290,7 +290,7 @@ resource "aws_instance" "web" {
 }
 ```
 
-**Reference:** [terraform-patterns.md](references/terraform-patterns.md#iteration)
+**Reference:** [terraform-patterns.md](../../references/terraform-patterns.md#iteration)
 
 ### 4. Singleton Naming: `this` Convention
 
@@ -313,7 +313,7 @@ resource "aws_subnet" "public" {}
 resource "aws_subnet" "private" {}
 ```
 
-**Reference:** [terraform-modules.md](references/terraform-modules.md#naming-conventions)
+**Reference:** [terraform-modules.md](../../references/terraform-modules.md#naming-conventions)
 
 ### 5. Testing: Mocks vs Real Providers
 
@@ -341,7 +341,7 @@ run "create_vpc" {
 }
 ```
 
-**Reference:** [terraform-testing.md](references/terraform-testing.md#mocks-vs-real)
+**Reference:** [terraform-testing.md](../../references/terraform-testing.md#mocks-vs-real)
 
 ### 6. State Backend: Hardcoded vs Dynamic
 
@@ -369,7 +369,7 @@ encrypt        = true
 terraform init -backend-config=environments/dev.s3.tfbackend
 ```
 
-**Reference:** [state-management.md](references/state-management.md#dynamic-backends)
+**Reference:** [state-management.md](../../references/state-management.md#dynamic-backends)
 
 ### 7. Module Versioning: Exact vs Loose
 
@@ -388,7 +388,7 @@ module "vpc" {
 }
 ```
 
-**Reference:** [terraform-modules.md](references/terraform-modules.md#versioning)
+**Reference:** [terraform-modules.md](../../references/terraform-modules.md#versioning)
 
 ---
 
@@ -400,36 +400,36 @@ Dive deeper into specific topics with these reference files:
 
 | File | Topics Covered | When to Read |
 |------|----------------|--------------|
-| **[terraform-patterns.md](references/terraform-patterns.md)** | Block ordering, modern features (1.1-1.11+), anti-patterns | Writing new Terraform code |
-| **[terraform-modules.md](references/terraform-modules.md)** | Module hierarchy, interface design, refactoring | Designing reusable modules |
-| **[terraform-testing.md](references/terraform-testing.md)** | `.tftest.hcl` syntax, mocks, assertions, test organization | Writing test suites |
-| **[state-management.md](references/state-management.md)** | Backends, locking, remote state, migrations, import/removed blocks | Managing stateful infrastructure |
+| **[terraform-patterns.md](../../references/terraform-patterns.md)** | Block ordering, modern features (1.1-1.11+), anti-patterns | Writing new Terraform code |
+| **[terraform-modules.md](../../references/terraform-modules.md)** | Module hierarchy, interface design, refactoring | Designing reusable modules |
+| **[terraform-testing.md](../../references/terraform-testing.md)** | `.tftest.hcl` syntax, mocks, assertions, test organization | Writing test suites |
+| **[state-management.md](../../references/state-management.md)** | Backends, locking, remote state, migrations, import/removed blocks | Managing stateful infrastructure |
 
 ### Terragrunt
 
 | File | Topics Covered | When to Read |
 |------|----------------|--------------|
-| **[terragrunt-patterns.md](references/terragrunt-patterns.md)** | Catalog/live architecture, DRY patterns, dependency management | Structuring multi-environment setups |
-| **[terragrunt-commands.md](references/terragrunt-commands.md)** | Stack commands, filter expressions, run-all vs run-in-order | Executing Terragrunt workflows |
+| **[terragrunt-patterns.md](../../references/terragrunt-patterns.md)** | Catalog/live architecture, DRY patterns, dependency management | Structuring multi-environment setups |
+| **[terragrunt-commands.md](../../references/terragrunt-commands.md)** | Stack commands, filter expressions, run-all vs run-in-order | Executing Terragrunt workflows |
 
 ### HCP Terraform Stacks
 
 | File | Topics Covered | When to Read |
 |------|----------------|--------------|
-| **[terraform-stacks.md](references/terraform-stacks.md)** | `.tfstack.hcl` syntax, components, orchestration, deployments | Configuring HCP Stacks orchestration |
+| **[terraform-stacks.md](../../references/terraform-stacks.md)** | `.tfstack.hcl` syntax, components, orchestration, deployments | Configuring HCP Stacks orchestration |
 
 ### CI/CD & Security
 
 | File | Topics Covered | When to Read |
 |------|----------------|--------------|
-| **[ci-cd-pipelines.md](references/ci-cd-pipelines.md)** | GitHub Actions, GitLab CI, OIDC, approval workflows | Setting up automation pipelines |
-| **[security-compliance.md](references/security-compliance.md)** | Secrets management, encryption, scanning (checkov/trivy), policies | Hardening infrastructure security |
+| **[ci-cd-pipelines.md](../../references/ci-cd-pipelines.md)** | GitHub Actions, GitLab CI, OIDC, approval workflows | Setting up automation pipelines |
+| **[security-compliance.md](../../references/security-compliance.md)** | Secrets management, encryption, scanning (checkov/trivy), policies | Hardening infrastructure security |
 
 ### Quick Lookup
 
 | File | Topics Covered | When to Read |
 |------|----------------|--------------|
-| **[quick-reference.md](references/quick-reference.md)** | Command cheat sheets, common patterns, troubleshooting | Quick lookups during development |
+| **[quick-reference.md](../../references/quick-reference.md)** | Command cheat sheets, common patterns, troubleshooting | Quick lookups during development |
 
 ---
 
@@ -853,8 +853,8 @@ limitations under the License.
 ## Next Steps
 
 1. **Read the reference files** that match your current task (see [Reference Files Navigation](#reference-files-navigation))
-2. **Check [quick-reference.md](references/quick-reference.md)** for command cheat sheets
-3. **Set up CI/CD** using [ci-cd-pipelines.md](references/ci-cd-pipelines.md)
+2. **Check [quick-reference.md](../../references/quick-reference.md)** for command cheat sheets
+3. **Set up CI/CD** using [ci-cd-pipelines.md](../../references/ci-cd-pipelines.md)
 
 ---
 
